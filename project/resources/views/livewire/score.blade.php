@@ -1,18 +1,18 @@
 <div>
-    <p>Score: {{ $score }}</p>
+    <p><span class="bold">Score</span> : {{ $score }}</p>
 
     @if ($isGameOver)
         <div class="modal">
             <div class="modal-content">
-                <h2>Thanks for playing!</h2>
-                <p>Your score is <span class="bold">{{ $score }}</span> points.</p>
+                <h2>Bravo !</h2>
+                <p>Vous avez marqué <span class="bold">{{ $score }}</span> points.</p>
                 <form wire:submit="saveScore">
-                    <label for="name">Enter your <span class="bold">name</span> to save your score.</label>
+                    <label for="name">Saisissez votre <span class="bold">nom</span> pour enregistrer votre score.</label>
                     <input type="text" id="name" name="name" wire:model="name">
                     @error('name') <span class="error">{{ $message }}</span> @enderror
-                    <button type="submit">Save</button>
+                    <button type="submit">Enregistrer</button>
                 </form>
-                <button wire:click="redirectDashboard">Exit without saving</button>
+                <button wire:click="redirectDashboard">Quitter sans enregistrer.</button>
             </div>
         </div>
     @endif

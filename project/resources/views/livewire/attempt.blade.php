@@ -1,3 +1,3 @@
 <div>
-    <p>Attempts: {{ $attempts }}</p>
+    <p><span class="bold">Essais</span> : {{ $attempts }}</p>
 </div>

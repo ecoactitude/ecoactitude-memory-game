@@ -24,7 +24,3 @@ Route::get('/play', function () {
 Route::get('/high-scores', function () {
     return view('pages.high-scores', ['scores' => \App\Models\Score::orderBy('score', 'desc')->take(15)->get()]);
 })->name('high-scores');
-
-Route::get('/credits', function () {
-    return view('pages.credits', ['credits' => \App\Models\Credit::all()]);
-})->name('credits');

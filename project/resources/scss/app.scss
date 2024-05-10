@@ -1,15 +1,19 @@
-$primary: white;
-$secondary: #1e90ff;
+$background: rgb(119, 198, 206);
+$white: rgb(255, 255, 255);
+$primary: rgb(1, 83, 81);
+$secondary: rgb(239, 164, 184);
 $third: #4169e1;
 
+html {
+  font-family: "ff-cocon-pro", sans-serif;
+}
+
 body {
-  background-color: #12181f;
-  color: $primary;
-  font-family: 'Press Start 2P', cursive;
+  background-color: $background;
+  color: $white;
 }
 
 input {
-  font-family: 'Press Start 2P', cursive;
   font-size: 15px;
 }
 
@@ -21,26 +25,26 @@ input {
 button {
   background-color: #12181f;
   font-weight: normal;
-  color: $primary;
-  font-family: 'Press Start 2P', cursive;
+  color: $white;
 }
 
 h1, h2 {
   text-align: center;
-  font-weight: 400;
-  font-size: 30px;
 }
 
 h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 700;
   margin: 80px 0;
 }
 
 h2 {
   margin-bottom: 50px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 p {
@@ -50,7 +54,7 @@ p {
 }
 
 a {
-  color: $secondary;
+  color: $white;
   text-decoration: none;
   transition: color 0.3s ease;
 
@@ -81,14 +85,15 @@ a {
     display: inline-block;
     width: 150px;
     background-color: $secondary;
-    color: $primary;
+    color: $white;
     padding: 20px 100px;
     text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s ease;
     font-size: 20px;
+    box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
     &:hover {
-      background-color: $third;
+      box-shadow: none;
     }
   }
 
@@ -127,16 +132,16 @@ a {
     margin-left: auto;
     margin-right: auto;
     background-color: $secondary;
-    color: $primary;
+    color: $white;
     text-align: center;
     padding: 20px;
     text-decoration: none;
     font-size: 20px;
     border-radius: 10px;
     transition: background-color 0.3s ease;
-
+    box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
     &:hover {
-      background-color: $third;
+      box-shadow: none;
     }
   }
 }
@@ -169,21 +174,24 @@ a {
   align-items: center;
   width: 350px;
   background-color: $secondary;
-  color: $primary;
+  color: $white;
   padding: 20px 100px;
   text-decoration: none;
   border-radius: 10px;
+  border: none;
+  outline: none;
   font-size: 20px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
+  box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
   @media(min-width: 1300px) {
     margin-top: 95px;
   }
 
   &:hover {
-    background-color: $third;
+    box-shadow: none;
   }
 }
 

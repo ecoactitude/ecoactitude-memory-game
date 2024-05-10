@@ -1,5 +1,5 @@
 <div>
-    <button class="action" wire:click="resetGame"><span class="emoticon">🗑️</span>Reset</button>
+    <button class="action" wire:click="resetGame"><span class="emoticon">🗑️</span>Recommencer</button>
     <div class="memory-infos">
         @livewire(Score::class)
         @livewire(Attempt::class)

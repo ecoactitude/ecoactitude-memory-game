@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="high-scores">
-        <h2>High Scores</h2>
+        <h2>Meilleurs Scores</h2>
 
         @foreach($scores as $score)
             <p>
