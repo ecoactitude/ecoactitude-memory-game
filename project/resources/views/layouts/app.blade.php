@@ -36,6 +36,6 @@
     @livewireScripts
 </body>
 <footer>
-    <p class="rights">Conçu par <a href="https://www.linkedin.com/in/julien-schmitt-backend-developer/">Julien SCHMITT</a></p>
+    <p class="rights">Conçu par <a href="https://www.linkedin.com/in/julien-schmitt-backend-developer/" target="_blank">Julien SCHMITT</a></p>
 </footer>
 </html>
