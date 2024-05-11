@@ -21,14 +21,15 @@ class CardSeeder extends Seeder
 
         $cards = [];
         $images = [
-            ['src' => 'img_bahamut.webp', 'alt' => 'Bahamut'],
-            ['src' => 'img_garuda.webp', 'alt' => 'Garuda'],
-            ['src' => 'img_ifrit.webp', 'alt' => 'Ifrit'],
-            ['src' => 'img_odin.webp', 'alt' => 'Odin'],
-            ['src' => 'img_ramuh.webp', 'alt' => 'Ramuh'],
-            ['src' => 'img_shiva.webp', 'alt' => 'Shiva'],
-            ['src' => 'img_titan.webp', 'alt' => 'Titan'],
-            ['src' => 'img_leviathan.jpg', 'alt' => 'Leviathan']
+            ['src' => 'baume-corps.webp', 'alt' => 'Baume corps'],
+            ['src' => 'boule-graisse.webp', 'alt' => 'Boule graisse'],
+            ['src' => 'creme-visage.webp', 'alt' => 'Crème visage'],
+            ['src' => 'deodorant.webp', 'alt' => 'Déodorant'],
+            ['src' => 'pain-vaisselle.webp', 'alt' => 'Pain vaisselle'],
+            ['src' => 'papierrecycle.png', 'alt' => 'Papier recyclé'],
+            ['src' => 'pate-a-modeler.png', 'alt' => 'Pate à modeler'],
+            ['src' => 'savon.webp', 'alt' => 'Savon'],
+            ['src' => 'tablettes-lave-vaisselle.webp', 'alt' => 'Tablettes lave-vaisselle']
         ];
 
         foreach ($images as $image) {

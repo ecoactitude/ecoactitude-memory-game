@@ -1,8 +1,8 @@
 <div>
     <button class="action" wire:click="resetGame"><span class="emoticon">🗑️</span>Recommencer</button>
     <div class="memory-infos">
-        @livewire(Score::class)
         @livewire(Attempt::class)
+        @livewire(Score::class)
     </div>
     <div class="memory-board">
         @foreach($cards as $card)
