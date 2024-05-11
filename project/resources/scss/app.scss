@@ -133,8 +133,10 @@ a {
   }
 
   a {
+    position: relative;
+    box-sizing: border-box;
     display: block;
-    max-width: 450px;
+    max-width: 350px;
     margin-left: auto;
     margin-right: auto;
     background-color: $secondary;
@@ -149,12 +151,27 @@ a {
     &:hover {
       box-shadow: none;
     }
+
+    .logo-full {
+      position: absolute;
+      vertical-align: middle;
+      max-height: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      margin-left: 2px;
+    }
   }
 }
 
+
+
 .rights {
   text-align: center;
-  margin-top: 80px;
+  margin-top: 40px;
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 
 .emoticon {

@@ -13,7 +13,7 @@
         <a href="{{ route('home') }}" wire:navigate>
             <img class="logo" src="{{ asset('images/gaia.svg') }}" alt="Mémo Actitude">
         </a>
-        Mémo Actitude
+        L'Eco-Mémo
     </h1>
 
     @if (Request::route()->getName() !== 'home')
@@ -35,4 +35,7 @@
     <script src="{{ asset('js/app.min.js') }}"></script>
     @livewireScripts
 </body>
+<footer>
+    <p class="rights">Conçu par <a href="https://www.linkedin.com/in/julien-schmitt-backend-developer/">Julien SCHMITT</a></p>
+</footer>
 </html>
