@@ -155,10 +155,10 @@ a {
     .logo-full {
       position: absolute;
       vertical-align: middle;
-      max-height: 40px;
+      max-height: 35px;
       top: 50%;
       transform: translateY(-50%);
-      margin-left: 2px;
+      margin-left: 5px;
     }
   }
 }
@@ -210,7 +210,7 @@ a {
   cursor: pointer;
   box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
   @media(min-width: 1300px) {
-    margin-top: 95px;
+    margin-top: 55px;
   }
 
   &:hover {
@@ -225,16 +225,14 @@ a {
   grid-template-columns: repeat(6, 125px);
   grid-gap: 16px;
   @media(max-width: 1024px) {
-    grid-template-columns: repeat(4, 125px);
-  }
-  @media(max-width: 750px) {
     grid-template-columns: repeat(3, 125px);
   }
 }
 
 .memory-infos {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20%;
 }
 
 .memory-card {

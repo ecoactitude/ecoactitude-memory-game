@@ -11,7 +11,7 @@
 <body>
     <h1>
         <a href="{{ route('home') }}" wire:navigate>
-            <img class="logo" src="{{ asset('images/gaia.svg') }}" alt="Mémo Actitude">
+            <img class="logo" src="{{ asset('images/gaia.svg') }}" alt="L'Eco-Mémo">
         </a>
         L'Eco-Mémo
     </h1>

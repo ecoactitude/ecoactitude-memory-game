@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(CardSeeder::class);
-        $this->call(ScoreSeeder::class);
+        //$this->call(ScoreSeeder::class);
     }
 }
