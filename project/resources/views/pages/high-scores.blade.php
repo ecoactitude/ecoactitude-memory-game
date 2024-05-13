@@ -6,8 +6,8 @@
 
         @foreach($scores as $score)
             <p>
-                <span>{{ $score->name }} : </span>
-                <span>{{ $score->score }} points</span>
+                <span class="bold">{{ $score->name }}</span>
+                <span>: {{ $score->score }} points</span>
             </p>
         @endforeach
     </div>

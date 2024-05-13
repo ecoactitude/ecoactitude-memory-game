@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mémo Actitude</title>
+    <title>L'Eco-Mémo</title>
     <link rel="icon" href="{{ asset('images/eco_actitude_icon.svg') }}">
     <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
     @livewireStyles
@@ -34,6 +34,7 @@
 
     <script src="{{ asset('js/app.min.js') }}"></script>
     @livewireScripts
+    @stack('scripts')
 </body>
 <footer>
     <p class="rights">Conçu par <a href="https://www.linkedin.com/in/julien-schmitt-backend-developer/" target="_blank">Julien SCHMITT</a></p>

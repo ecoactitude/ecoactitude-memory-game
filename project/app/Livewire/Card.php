@@ -27,6 +27,10 @@ class Card extends Component
      */
     public function flipCard(): void
     {
+        if ($this->isLocked) {
+            return;
+        }
+
         $this->isFlipped = !$this->isFlipped;
 
         $this->dispatch('flip-card', id: $this->id, isFlipped: $this->isFlipped)->to(MemoryGame::class);
@@ -54,14 +58,27 @@ class Card extends Component
 
     /**
      * Lock the card.
-     * Launches during the 'start-timer' event.
+     * Launches during the 'start-timer' and 'lock-cards' events.
      *
      * @return void
      */
     #[On('start-timer')]
+    #[On('lock-cards')]
     public function lockCard(): void
     {
         $this->isLocked = true;
+    }
+
+    /**
+     * Unlock the card.
+     * Launches during the 'unlock-cards' event.
+     *
+     * @return void
+     */
+    #[On('unlock-cards')]
+    public function unlockCard(): void
+    {
+        $this->isLocked = false;
     }
 
     /**

@@ -13,6 +13,8 @@ class Score extends Component
 {
     #[Session]
     public int $score = 0;
+    #[Session]
+    public int $combo = 0;
     #[Validate('required|regex:/^[\pL\s\d]+$/u')]
     public string $name = '';
     #[Session]
@@ -27,7 +29,9 @@ class Score extends Component
     #[On('increment-score')]
     public function incrementScore(): void
     {
-        $this->score += 10;
+        ++$this->combo;
+        // Increment the score by 10 + (combo * 5)
+        $this->score += 10 + ($this->combo * 5);
     }
 
     /**
@@ -39,8 +43,13 @@ class Score extends Component
     #[On('decrement-score')]
     public function decrementScore(): void
     {
-        if ($this->score > 0) {
+        $this->combo = 0;
+        // If the score is less than 10, decrement the score by 1
+        // Otherwise, decrement the score by an integer of score / 10
+        if ($this->score < 10) {
             --$this->score;
+        } else {
+            $this->score -= intval($this->score / 10);
         }
     }
 
@@ -53,6 +62,7 @@ class Score extends Component
     #[On('reset-game')]
     public function resetScore(): void
     {
+        $this->combo = 0;
         $this->score = 0;
         $this->isGameOver = false;
     }

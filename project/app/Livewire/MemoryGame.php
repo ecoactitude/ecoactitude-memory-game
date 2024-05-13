@@ -40,6 +40,7 @@ class MemoryGame extends Component
     #[On('flip-card')]
     public function flipCard(string $id, bool $isFlipped): void
     {
+        $this->dispatch('lock-cards')->to(Card::class);
         // Find the current card
         $key = array_search($id, array_column($this->cards, 'id'));
 
@@ -64,6 +65,8 @@ class MemoryGame extends Component
                     $this->cards[array_search($this->lastFlippedCard['id'], array_column($this->cards, 'id'))]['isInError'] = false;
                     $this->cards[$key]['isInError'] = false;
 
+                    $this->dispatch('unlock-cards')->to(Card::class);
+
                     if (count($flippedCards) === count($this->cards)) {
                         $this->dispatch('game-over')->to(Score::class);
                     }
@@ -77,6 +80,7 @@ class MemoryGame extends Component
             } elseif (count($flippedCards) > 0) {
                 // Store the current card as the last flipped card
                 $this->lastFlippedCard = \App\Models\Card::select('id', 'lot')->where('id', $id)->first()->toArray();
+                $this->dispatch('unlock-cards')->to(Card::class);
             }
         }
 

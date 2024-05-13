@@ -50,13 +50,13 @@ h2 {
 p {
   text-align: center;
   font-size: 15px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 a {
   color: $white;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease-out;
 
   &:hover {
     color: $third;
@@ -95,11 +95,11 @@ a {
     align-items: center;
     text-align: center;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease-out;
     font-size: 20px;
-    box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
+    box-shadow: none;
     &:hover {
-      box-shadow: none;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.3) inset;
     }
   }
 
@@ -130,6 +130,12 @@ a {
 
   li {
     margin-bottom: 20px;
+
+    &:last-child {
+      a {
+        padding: 11.36px 20px;
+      }
+    }
   }
 
   a {
@@ -146,18 +152,18 @@ a {
     text-decoration: none;
     font-size: 20px;
     border-radius: 10px;
-    transition: background-color 0.3s ease;
-    box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
+    box-shadow: none;
+    transition: all 0.3s ease-out;
     &:hover {
-      box-shadow: none;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.3) inset;
     }
 
+
     .logo-full {
-      position: absolute;
+      position: relative;
       vertical-align: middle;
-      max-height: 35px;
+      max-height: 40px;
       top: 50%;
-      transform: translateY(-50%);
       margin-left: 5px;
     }
   }
@@ -208,13 +214,13 @@ a {
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
-  box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
+  box-shadow: none;
   @media(min-width: 1300px) {
     margin-top: 55px;
   }
 
   &:hover {
-    box-shadow: none;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3) inset;
   }
 }
 
@@ -226,6 +232,9 @@ a {
   grid-gap: 16px;
   @media(max-width: 1024px) {
     grid-template-columns: repeat(3, 125px);
+  }
+  @media(max-width: 400px) {
+    grid-gap: 4px;
   }
 }
 
@@ -356,9 +365,15 @@ a {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 10px 5px 10px rgba(0,0,0,0.3);
+    box-shadow: none;
     &:hover {
-      box-shadow: none;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.3) inset;
     }
+  }
+}
+
+.high-scores {
+  p {
+    text-align: center;
   }
 }

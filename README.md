@@ -11,7 +11,7 @@
 Source code for Final Fantasy Memory Quest.
 
 ### Game content:
-![game.gif](assets%2Fgame.gif)
+![game.png](assets%2Fgame.png)
 
 ### Rules
 
@@ -19,13 +19,17 @@ Source code for Final Fantasy Memory Quest.
 |:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|
 | :green_circle:  If the two cards are <span style="color:green">the same</span>, then you win 10 points. | :red_circle: If the two cards are <span style="color:red">different</span>, then you lose 1 point and the number of Attempts increases. |
 
+#### Scoring
+
+- a combo is a pair of cards found in a row
+- 10 points for each pair found + 5 points for each combo cumulated
+- -1 point for each pair not found if the score is less than 10
+- -10% of the score for each pair not found if the score is greater than 10
+
 ## Screenshots
 
 ### Dashboard
-![dashboard.jpg](assets%2Fdashboard.jpg)
-
-### Credits
-![credits.jpg](assets%2Fcredits.jpg)
+![dashboard.jpg](assets%2Fdashboard.png)
 
 ## BACK-END INSTALL
 
@@ -71,6 +75,14 @@ To seed the database, run the following command:
 
 ```bash
 php artisan db:seed
+```
+
+### Livewire
+
+To publish the Livewire assets, run the following command:
+
+```bash
+php artisan livewire:publish --assets
 ```
 
 ## FRONT-END INSTALL
