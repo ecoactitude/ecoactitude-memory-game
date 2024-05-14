@@ -215,6 +215,7 @@ a {
   margin-right: auto;
   cursor: pointer;
   box-shadow: none;
+  transition: all 0.3s ease-out;
   @media(min-width: 1300px) {
     margin-top: 55px;
   }

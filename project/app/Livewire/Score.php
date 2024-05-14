@@ -83,6 +83,7 @@ class Score extends Component
      * Save the score.
      *
      * @return Redirector
+     *
      */
     public function saveScore(): Redirector
     {
@@ -94,7 +95,8 @@ class Score extends Component
             'score' => $this->score,
         ]);
 
-        $this->dispatch('reset-game');
+        session()->flush();
+        $this->resetScore();
 
         return redirect()->route('high-scores');
     }

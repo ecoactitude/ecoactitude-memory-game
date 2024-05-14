@@ -27,7 +27,7 @@ class CardSeeder extends Seeder
             ['src' => 'deodorant.webp', 'alt' => 'Déodorant'],
             ['src' => 'pain-vaisselle.webp', 'alt' => 'Pain vaisselle'],
             ['src' => 'papierrecycle.png', 'alt' => 'Papier recyclé'],
-            ['src' => 'pate-a-modeler.png', 'alt' => 'Pate à modeler'],
+            ['src' => 'lessive.png', 'alt' => 'Lessive'],
             ['src' => 'savon.webp', 'alt' => 'Savon'],
             ['src' => 'tablettes-lave-vaisselle.webp', 'alt' => 'Tablettes lave-vaisselle']
         ];
