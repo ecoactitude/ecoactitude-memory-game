@@ -47,7 +47,7 @@ class MemoryGame extends Component
             // Store the flipped date
             $this->cards[$key]['flippedDate'] = microtime(true);
             $flippedCards = array_filter($this->cards, function($card) {
-                return isset($card['isFlipped']) && $card['isFlipped'] === true;
+                return isset($card['isFlipped']) && $card['isFlipped'] === true && (!isset($card['isInError']) || $card['isInError'] === false);
             });
 
             // Sort the flipped cards
