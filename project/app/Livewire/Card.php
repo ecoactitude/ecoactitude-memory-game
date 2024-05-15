@@ -18,22 +18,27 @@ class Card extends Component
     #[Session(key: 'isFlipped-{card.id}')]
     public bool $isFlipped = false;
     public bool $isInError = false;
-    public bool $isLocked = false;
 
     /**
      * Flip the card.
+     * Launches during the 'flip-card' event.
      *
+     * @param $id
      * @return void
      */
-    public function flipCard(): void
+    #[On('flip-card')]
+    public function flipCard($id): void
     {
-        if ($this->isLocked) {
+        if ($this->id !== $id || $this->isFlipped) {
             return;
         }
 
         $this->isFlipped = !$this->isFlipped;
 
-        $this->dispatch('flip-card', id: $this->id, isFlipped: $this->isFlipped)->to(MemoryGame::class);
+        $this
+            ->dispatch('process-flipped-cards', id: $this->id, isFlipped: $this->isFlipped)
+            ->to(MemoryGame::class)
+        ;
 
         // Then update the card details
         if ($this->isFlipped) {
@@ -54,31 +59,6 @@ class Card extends Component
     public function startTimer(): void
     {
         $this->dispatch('start-timer');
-    }
-
-    /**
-     * Lock the card.
-     * Launches during the 'start-timer' and 'lock-cards' events.
-     *
-     * @return void
-     */
-    #[On('start-timer')]
-    #[On('lock-cards')]
-    public function lockCard(): void
-    {
-        $this->isLocked = true;
-    }
-
-    /**
-     * Unlock the card.
-     * Launches during the 'unlock-cards' event.
-     *
-     * @return void
-     */
-    #[On('unlock-cards')]
-    public function unlockCard(): void
-    {
-        $this->isLocked = false;
     }
 
     /**
@@ -122,16 +102,15 @@ class Card extends Component
     }
 
     /**
-     * Reset the error cards.
-     * Launches during the 'reset-error-cards' event.
+     * Reset the card.
+     * Launches during the 'reset-card' event.
      *
      * @param string $id
      * @return void
      */
-    #[On('reset-error-cards')]
-    public function resetErrorCards($id): void
+    #[On('reset-card')]
+    public function resetCard($id): void
     {
-        $this->isLocked = false;
         if ($this->id === $id) {
             $this->isFlipped = false;
             $this->mount(card: $this->card, id: $this->id, isInError: false);

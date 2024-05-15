@@ -10,14 +10,3 @@
         @endforeach
     </div>
 </div>
-
-@script
-    <script>
-        let cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('livewire:click', () => {
-                cards.forEach(card => card.removeAttribute('wire:click'));
-            });
-        });
-    </script>
-@endscript

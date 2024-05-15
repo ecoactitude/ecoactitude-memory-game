@@ -1,5 +1,5 @@
 <div
-    @if(!$isLocked && !$isFlipped)wire:click="flipCard"@endif
+    @if(!$isFlipped) onclick="flipCard(this, '{{ $id }}')"@endif
     @if($isInError) wire:init="startTimer"@endif
     class="card @if($isInError)error-card @endif @if(!$isFlipped)card-back @endif"
 >
@@ -17,7 +17,7 @@
         <script>
             $wire.on('start-timer', () => {
                 setTimeout(() => {
-                    $wire.dispatch('reset-error-cards', { id: String({{ $id }}) })
+                    $wire.dispatch('reset-card', { id: String({{ $id }}) })
                 }, 300)
             })
         </script>

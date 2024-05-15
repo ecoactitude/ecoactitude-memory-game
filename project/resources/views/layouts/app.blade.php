@@ -32,9 +32,8 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('js/app.min.js') }}"></script>
     @livewireScripts
-    @stack('scripts')
+    <script src="{{ asset('js/app.min.js') }}"></script>
 </body>
 <footer>
     <p class="rights">Conçu par <a href="https://www.linkedin.com/in/julien-schmitt-backend-developer/" target="_blank">Julien SCHMITT</a></p>
