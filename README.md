@@ -8,7 +8,7 @@
 ![NPM](https://img.shields.io/badge/NPM-v9.5+-cb3837.svg?style=flat-square&logo=npm)
 [![MIT Licensed](https://img.shields.io/github/license/noweh/livewire-memory-game)](licence.md)
 
-Source code for Final Fantasy Memory Quest.
+Source code for Eco-Actitude Memory Quest.
 
 ### Game content:
 ![game.png](assets%2Fgame.png)
