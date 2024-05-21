@@ -15,9 +15,9 @@ Source code for Eco-Actitude Memory Quest.
 
 ### Rules
 
-|                          ![success.gif](assets%2Fsuccess.gif)                           |                                              ![error.gif](assets%2Ferror.gif)                                              |
-|:---------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|
-| :green_circle:  If the two cards are <span style="color:green">the same</span>, then you win 10 points. | :red_circle: If the two cards are <span style="color:red">different</span>, then you lose 1 point and the number of Attempts increases. |
+|                                   ![success.gif](assets%2Fsuccess.gif)                                    |                                              ![error.gif](assets%2Ferror.gif)                                              |
+|:---------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|
+| :green_circle:  If the two cards are <span style="color:green">the same</span>, then you win 10+5 points. | :red_circle: If the two cards are <span style="color:red">different</span>, then you lose 1 point and the number of Attempts increases. |
 
 #### Scoring
 
@@ -26,6 +26,26 @@ Source code for Eco-Actitude Memory Quest.
 - -1 point for each pair not found if the score is less than 10
 - -10% of the score for each pair not found if the score is greater than 10
 
+#### Combos bonus
+
+<table>
+  <tr>
+    <td>
+      <img src="assets/combo1.gif" alt="Combo" width="49.5%"/>
+      <img src="assets/combo2.gif" alt="Combo" width="49.5%"/>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      :green_circle:  If you find a pair of cards in a row, you win 10+5*{combos} points.
+    </td>
+  </tr>
+</table>
+
+
+violet | rond blanc | carré dans vert |  rond blanc diff | rond blanc diff | carré blanc pot
+stylo vert | violet | lessive | rond blanc | carré blanc pot | savon violet
+savon violet | jardin suspendu | jardin suspendu | stylo vert | carré vert | lessive
 ## Screenshots
 
 ### Dashboard

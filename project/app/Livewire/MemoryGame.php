@@ -34,58 +34,60 @@ class MemoryGame extends Component
      * @return void
      */
     #[On('process-flipped-cards')]
-    public function processFlippedCards(string $id, bool $isFlipped): void
+    public function processFlippedCards(string $id): void
     {
         // Find the current card
         $key = array_search($id, array_column($this->cards, 'id'));
 
         // Flip the current card
-        $this->cards[$key]['isFlipped'] = $isFlipped;
+        $this->cards[$key]['isFlipped'] = true;
 
-        // Check if the current card is flipped
-        if ($this->cards[$key]['isFlipped'] === true) {
-            // Store the flipped date
-            $this->cards[$key]['flippedDate'] = microtime(true);
-            $flippedCards = array_filter($this->cards, function($card) {
-                return isset($card['isFlipped']) && $card['isFlipped'] === true && (!isset($card['isInError']) || $card['isInError'] === false);
-            });
+        // Store the flipped date
+        $this->cards[$key]['flippedDate'] = microtime(true);
 
-            // Sort the flipped cards
-            uasort($flippedCards, function ($a, $b) {
-                if (!isset($a['isCompleted']) && !isset($b['isCompleted'])) {
-                    return $b['flippedDate'] <=> $a['flippedDate'];
-                } else {
-                    if (isset($a['isCompleted']) && !isset($b['isCompleted'])) {
-                        return 1;
-                    }
-                    if (isset($b['isCompleted']) && !isset($a['isCompleted'])) {
-                        return -1;
-                    }
+        \Log::info("flipCard" . $id);
+        \Log::info(print_r($this->cards, true));
+
+        $flippedCards = array_filter($this->cards, function($card) {
+            return isset($card['isFlipped']) && $card['isFlipped'] === true && (!isset($card['isInError']) || $card['isInError'] === false);
+        });
+
+        // Sort the flipped cards
+        uasort($flippedCards, function ($a, $b) {
+            if (!isset($a['isCompleted']) && !isset($b['isCompleted'])) {
+                return $b['flippedDate'] <=> $a['flippedDate'];
+            } else {
+                if (isset($a['isCompleted']) && !isset($b['isCompleted'])) {
+                    return 1;
                 }
-
-                return 0;
-            });
-
-            // Check if there are two flipped cards
-            if (count($flippedCards) % 2 === 0) {
-                // Dispatch the appropriate event based on whether the current card matches the last flipped card
-                $lastFlippedCard = array_slice($flippedCards, 1, 1)[0];
-                if ($this->cards[$key]['lot'] === $lastFlippedCard['lot']) {
-                    $this->dispatch('increment-score');
-                    $this->dispatch('is-in-success')->to(Card::class);
-                    $this->cards[array_search($lastFlippedCard['id'], array_column($this->cards, 'id'))]['isCompleted'] = true;
-                    $this->cards[$key]['isCompleted'] = true;
-
-                    if (count($flippedCards) === count($this->cards)) {
-                        $this->dispatch('game-over')->to(Score::class);
-                    }
-                } else {
-                    $this->dispatch('increment-attempts')->to(Attempt::class);
-                    $this->dispatch('decrement-score')->to(Score::class);
-                    $this->dispatch('is-in-error', ids: [$id, $lastFlippedCard['id']])->to(Card::class);
-                    $this->cards[array_search($lastFlippedCard['id'], array_column($this->cards, 'id'))]['isInError'] = true;
-                    $this->cards[$key]['isInError'] = true;
+                if (isset($b['isCompleted']) && !isset($a['isCompleted'])) {
+                    return -1;
                 }
+            }
+
+            return 0;
+        });
+        \Log::info(print_r($flippedCards, true));
+
+        // Check if there are two flipped cards
+        if (count($flippedCards) > 0 && count($flippedCards) % 2 === 0) {
+            // Dispatch the appropriate event based on whether the current card matches the last flipped card
+            $lastFlippedCard = array_slice($flippedCards, 1, 1)[0];
+            if ($this->cards[$key]['lot'] === $lastFlippedCard['lot']) {
+                $this->dispatch('increment-score');
+                $this->dispatch('is-in-success')->to(Card::class);
+                $this->cards[array_search($lastFlippedCard['id'], array_column($this->cards, 'id'))]['isCompleted'] = true;
+                $this->cards[$key]['isCompleted'] = true;
+
+                if (count($flippedCards) === count($this->cards)) {
+                    $this->dispatch('game-over')->to(Score::class);
+                }
+            } else {
+                $this->dispatch('increment-attempts')->to(Attempt::class);
+                $this->dispatch('decrement-score');
+                $this->dispatch('is-in-error', ids: [$id, $lastFlippedCard['id']])->to(Card::class);
+                $this->cards[array_search($lastFlippedCard['id'], array_column($this->cards, 'id'))]['isInError'] = true;
+                $this->cards[$key]['isInError'] = true;
             }
         }
     }
@@ -98,12 +100,15 @@ class MemoryGame extends Component
      * @return void
      */
     #[On('reset-card')]
-    public function resetCard($id): void
+    public function resetCard(string $id): void
     {
+        \Log::info('delete' . $id);
+        \Log::info(print_r($this->cards, true));
         foreach ($this->cards as $key => $card) {
             if ((string)$card['id'] === $id) {
                 $this->cards[$key]['isInError'] = false;
                 $this->cards[$key]['isFlipped'] = false;
+                $this->cards[$key]['flippedDate'] = null;
             }
         }
     }

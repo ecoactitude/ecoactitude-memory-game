@@ -7,3 +7,16 @@ window.flipCard = function(card, id) {
         Livewire.dispatch('flip-card', { id: String(id) })
     }
 }
+
+Livewire.on('reload-combo-animation', () => {
+    const comboImage = document.querySelector('.combo');
+
+    if (comboImage) {
+        comboImage.classList.remove('combo');
+
+        // Trigger reflow
+        void comboImage.offsetWidth;
+
+        comboImage.classList.add('combo');
+    }
+});

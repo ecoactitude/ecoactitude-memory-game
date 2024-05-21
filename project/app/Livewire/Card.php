@@ -33,22 +33,17 @@ class Card extends Component
             return;
         }
 
-        $this->isFlipped = !$this->isFlipped;
+        $this->isFlipped = true;
 
         $this
-            ->dispatch('process-flipped-cards', id: $this->id, isFlipped: $this->isFlipped)
+            ->dispatch('process-flipped-cards', id: $this->id)
             ->to(MemoryGame::class)
         ;
 
         // Then update the card details
-        if ($this->isFlipped) {
-            $card = \App\Models\Card::where('id', $this->id)->first();
-            $this->src = asset('images/' . $card->src);
-            $this->alt = $card->alt;
-        } else {
-            $this->src = null;
-            $this->alt = 'Back of card';
-        }
+        $card = \App\Models\Card::where('id', $this->id)->first();
+        $this->src = asset('images/' . $card->src);
+        $this->alt = $card->alt;
     }
 
     /**
