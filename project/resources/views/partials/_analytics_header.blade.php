@@ -1,27 +1,24 @@
 <script>
-	(function(w,d,s,l,i){
-		w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-		var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-		j.async=true;
-		j.src= 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
-		f.parentNode.insertBefore(j,f);
+    /* <![CDATA[ */
 
-		// window.ONP     = window.ONP || {};
-		// window.ONP.gtm = window.ONP.gtm || {loaded: false, error: false};
+    ( function( w, d, s, l, i ) {
+        w[l] = w[l] || [];
+        w[l].push( {'gtm.start': new Date().getTime(), event: 'gtm.js'} );
+        var f = d.getElementsByTagName( s )[0],
+            j = d.createElement( s ), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore( j, f );
+    } )( window, document, 'script', 'dataLayer', 'GTM-P3S2DH2' );
 
-		// Dispatching custom events
-		j.addEventListener('load', function gtmContainerLoaded(e) {
-			window.ONP.gtm.loaded = true;
-			window.ONP.gtm.error = false;
-			j.removeEventListener('load', gtmContainerLoaded);
-			window.dispatchEvent(new CustomEvent('gtmContainerLoaded'))
-		});
-
-		j.addEventListener('error', function gtmContainerError(e) {
-			window.ONP.gtm.loaded = false;
-			window.ONP.gtm.error = true;
-			j.removeEventListener('error', gtmContainerError);
-			window.dispatchEvent(new CustomEvent('gtmContainerError'))
-		});
-	})(window,document,'script','dataLayer', '{!! $gtm_ui !!}');
+    /* ]]> */
+</script>
+<script type="text/javascript" id="google_gtagjs-js-after">
+    /* <![CDATA[ */
+    window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+    gtag("set","linker",{"domains":["www.ecoactitude.com"]});
+    gtag("js", new Date());
+    gtag("set", "developer_id.dZTNiMT", true);
+    gtag("config", "GT-WVGM7PC");
+    /* ]]> */
 </script>

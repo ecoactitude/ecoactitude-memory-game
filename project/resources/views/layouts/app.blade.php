@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('partials._analytics_header', ['gtm_ui' => config('app.gtm-ui')])
+    @include('partials._analytics_header')
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="L'Eco-Mémo est un sous-domaine de Eco-Actitude, un site qui a pour but de sensibiliser les gens à l'écologie et à l'environnement, vous proposant un mini-jeu de Memory sur le thème de l'écologie." />
@@ -58,7 +58,6 @@
     @livewireStyles
 </head>
 <body>
-    @include('partials._analytics_body', ['gtm_ui' => config('app.gtm-ui')])
     <h1>
         <a href="{{ route('home') }}" wire:navigate>
             <img class="logo" src="{{ asset('images/gaia.svg') }}" alt="Logo de L'Eco-Mémo">
