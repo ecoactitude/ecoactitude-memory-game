@@ -20,6 +20,9 @@
             "url": "{{ route('home') }}",
             "name": "L'Eco-Mémo",
             "description": "L'Eco-Mémo est un sous-domaine de Eco-Actitude, un site qui a pour but de sensibiliser les gens à l'écologie et à l'environnement, vous proposant un mini-jeu de Memory sur le thème de l'écologie.",
+            "isPartOf": {
+                "@id": "https://www.ecoactitude.com/"
+            },
             "author": {
                 "@type": "Person",
                 "name": "Eco-Actitude"
@@ -32,12 +35,26 @@
                     "url": "{{ asset('images/eco_actitude_icon.svg') }}"
                 }
             }
+            "game": {
+                "@type": "VideoGame",
+                "name": "Eco-Mémo",
+                "description": "Un mini-jeu de Memory sur le thème de l'écologie.",
+                "gamePlatform": "Web",
+                "applicationCategory": "Educational game",
+                "image": "{{ asset('images/game.png') }}",
+                "screenshot": "{{ asset('images/combo2.gif') }}",
+                "gameLocation": {
+                    "@type": "URL",
+                    "url": "{{ route('play') }}"
+                }
+            }
         }
     </script>
 
     <title>L'Eco-Mémo</title>
     <link rel="icon" href="{{ asset('images/eco_actitude_icon.svg') }}">
     <link rel="stylesheet" href="{{ asset('css/app.min.css') }}">
+    <link rel="canonical" href="{{ route('home') }}" />
     @livewireStyles
 </head>
 <body>
